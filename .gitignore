@@ -1,0 +1,7 @@
+# Virtualenv
+bin/
+lib/
+pyvenv.cfg
+
+# Pystuff
+__pycache__
