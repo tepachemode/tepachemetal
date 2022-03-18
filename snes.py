@@ -1,5 +1,5 @@
 from enum import Enum
-import RPIO
+import RPi.GPIO as GPIO
 
 
 class Pin(Enum):
@@ -55,6 +55,7 @@ class SNES():
         self.started = False
 
     def start(self):
+        GPIO.setmode(GPIO.BCM)
         self.__clear_buttons()
         self.started = True
 
@@ -67,8 +68,9 @@ class SNES():
             raise Exception("Please call start() first")
 
     def __clean():
-        RPIO.cleanup()
+        GPIO.cleanup()
 
     def __clear_buttons():
         for pin in MAPPING.keys():
-            RPIO.setup(pin.value, RPIO.OUT, initial=RPIO.HIGH)
+            GPIO.setup(pin.value, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
+            GPIO.output(pin.value, GPIO.HIGH)
