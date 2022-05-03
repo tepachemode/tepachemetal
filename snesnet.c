@@ -87,6 +87,10 @@ void clear_all_buttons(void)
   }
 }
 
+/**
+ * Pulses every 16.67ms
+ * Pulse length is 12µs
+ */
 void latch_lock(void)
 {
   int i;
