@@ -11,5 +11,3 @@
 #include <sys/types.h>
 
 #include <wiringPi.h>
-
-#define PIN_LATCH = 23

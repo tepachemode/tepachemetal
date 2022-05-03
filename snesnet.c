@@ -30,7 +30,7 @@ static void callback(struct mg_connection *connection, int event, void *event_da
 {
   if (event == MG_EV_HTTP_MSG)
   {
-    struct mg_http_message *message = (struct mg_http_message *)event_data;
+    struct mg_http_message *message = (struct mg_http_message *) event_data;
     struct mg_str caps[2];
 
     if (mg_match(message->uri, mg_str("/api/down/*"), caps))
@@ -83,25 +83,6 @@ void clear_all_buttons(void)
   int i;
   for (i = 0; i < size; ++i)
   {
-    digitalWrite(buttons[i].pinNum, HIGH);
-  }
-}
-
-void unset_all_buttons(void)
-{
-  int i;
-  for (i = 0; i < size; ++i)
-  {
-    buttons[i].active = 0;
-  }
-}
-
-void enable_all_buttons(void)
-{
-  int i;
-  for (i = 0; i < size; ++i)
-  {
-    // Set all buttons to output and default low
     digitalWrite(buttons[i].pinNum, HIGH);
   }
 }
